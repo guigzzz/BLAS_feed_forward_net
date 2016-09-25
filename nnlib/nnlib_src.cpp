@@ -66,6 +66,7 @@ float *run_blas(int num_layers,int *layer_sizes,float** weights,float** neuron_v
 		auto end = hrc::now();
 		auto time_taken = chr::duration_cast<chr::milliseconds>(end-begin).count();
 		blas_time+=time_taken;
+
 		for(int k = 0;k<num_test_data;k++){
 			int j = 0;
 			pack_t max_sum(300);
