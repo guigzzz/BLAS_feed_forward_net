@@ -7,6 +7,7 @@ int main(int argc,char **argv){
 		printf("%s <data bin name> <num mult>\n",argv[0]);
 		return -1;
 	}
+
 	test_data *data = read_test_data_from_binary(argv[1]);	
 	int num_test_data_overall = data->num_test_data*atoi(argv[2]);
 
