@@ -52,29 +52,12 @@ int main(int argc, char* argv[])
 
 	cout << "avg time over " << num_loops << " iterations: " << avg_time/1000 << endl;
 	/*
-	   float tol = 0.2;
-	   int num_wrong = 0;
-	   int num_right = 0;
-	   float *y;
-
-	   for(int i = 0; i < data->num_test_data; i++){
-	   y = data->output[i]; 
-	//  cout << y[0] << " " << mynet->predicted_outputs[i][0] << " " << mynet->predicted_outputs[i][1] << endl;
-	if(sqrt(pow(y[0]-mynet->predicted_outputs[i][0], 2) + pow(y[1]-mynet->predicted_outputs[i][1], 2))< tol){
-	++num_right;
-	} else {
-	++num_wrong;
-	}
-	}
-
-	cout<< " right : " << num_right << " wrong " << num_wrong << endl;
-	cout<<" error: " << (float)(num_wrong) / (num_wrong + num_right) * 100 << "%\n";
-	 */
 	for(int i = 0;i<data->num_test_data;i++){
 		for(int j = 0;j<data->num_output;j++){
 		//	cout << "predicted: "<< mynet->predicted_outputs[i][j] << " actual: " << data->output[i][j] << endl;
 		}
 	}
+	*/
 	destroy_network(mynet);
 	destroy_test_data(data);
 	return 0;

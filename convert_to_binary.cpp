@@ -3,7 +3,7 @@
 
 int main(int argc,char **argv){
 
-	if(argc<3){
+	if(argc<4){
 		printf("%s <net name> <binary net name>\n",argv[0]);
 		return -1;
 	}
