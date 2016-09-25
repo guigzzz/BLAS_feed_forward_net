@@ -39,7 +39,6 @@ void run_net(struct neural_network *&mynet,struct test_data *data){
 	}
 
 	float *raw_output;
-	float err;
 	raw_output = run_blas(num_layers,layer_sizes,weights,neuron_values,num_test_data);
 	//remove biases
 	for(int i = 0;i<data->num_test_data*layer_sizes[num_layers-1];i++){
@@ -54,10 +53,11 @@ float *run_blas(int num_layers,int *layer_sizes,float** weights,float** neuron_v
 {
 	using pack_t = bs::pack<float>;
 	double blas_time = 0;
+	namespace chr = std::chrono;
+	using hrc = chr::high_resolution_clock;
+
 	for(int i = 1;i<num_layers;i++){
 
-		namespace chr = std::chrono;
-		using hrc = chr::high_resolution_clock;
 		auto begin = hrc::now();
 
 		cblas_sgemm(CblasColMajor,CblasTrans,CblasNoTrans,layer_sizes[i]-1,num_test_data,layer_sizes[i-1], 
@@ -71,7 +71,7 @@ float *run_blas(int num_layers,int *layer_sizes,float** weights,float** neuron_v
 			pack_t max_sum(300);
 			pack_t ones = bs::One<pack_t>();
 			pack_t twos(-2.f);
-			for(;j + pack_t::static_size <=layer_sizes[i]-1;j+= pack_t::static_size){ //-1 to not do bias neuron
+			for(;j + pack_t::static_size <=layer_sizes[i]-1;j+= pack_t::static_size){
 				pack_t neuron_sum = bs::load<pack_t>(&neuron_values[i][k * layer_sizes[i] + j]);
 				auto mask = bs::abs(neuron_sum) > max_sum;
 				auto zero_mask = bs::is_greater(neuron_sum,bs::Zero<pack_t>());
