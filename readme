@@ -1,0 +1,19 @@
+turn binary read/write into full fann functional -> easy
+integrate test_data binary read/write into fann library -> easy
+-> this is fast to do and is probably something that will be quickly accepted
+
+make run_blas fann functional, implement activation function changing
+-> write a function to interface between fann structure and run blas?
+
+figure out how to make CMake auto detect if blas libraries are installed and use them if they are, defaulting to the normal fann run if none available
+-> package libopenblas.a with fann? need to figure out how licensing works on that
+
+if integrating with fann, need to get rid of own structures and work with native fann ones
+ask for feedback on fann github in order to gauge interest in what I'm doing
+-> if not much interest, so much effort, create my own neural net library, thanos might be interested
+-> advantage is designing an efficient structure for dense networks, idgaf about sparse nets.
+-> designed from the start to use blas for all calculations, essentially want the library to be very efficient both in terms of computation and memory usage
+-> does anyone need yet another neural network library
+
+
+
