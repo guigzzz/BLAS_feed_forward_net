@@ -29,4 +29,6 @@ add_executable(run_net_blas run_net_blas.cpp)
 target_link_libraries(run_net_blas nnlib)
 add_executable(mult_data mult_data.cpp)
 target_link_libraries(mult_data nnlib)
+add_executable(binary_write binary_write.cpp)
+target_link_libraries(binary_write -lfann)
 

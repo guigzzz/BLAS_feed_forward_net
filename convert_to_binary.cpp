@@ -7,7 +7,8 @@ int main(int argc,char **argv){
 		printf("%s <net name> <binary net name>\n",argv[0]);
 		return -1;
 	}
-	struct fann *ann = fann_create_standard(4,2,4000,4000,1);
+	struct fann *ann = fann_create_standard(4,2,2,2,1);
+	fann_save(ann,argv[1]);
 	//struct fann *ann = fann_create_from_file(argv[1]);
 	int num_layers = ann->last_layer-ann->first_layer;
 	struct fann_layer *layer_it = ann->first_layer;
