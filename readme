@@ -7,7 +7,7 @@ make run_blas fann functional, implement activation function changing
 
 figure out how to make CMake auto detect if blas libraries are installed and use them if they are, defaulting to the normal fann run if none available
 -> package libopenblas.a with fann? need to figure out how licensing works on that
--> advantage is simpler CMake, and everyone can take advantage of blas, without shitty install
+-> advantage is simpler CMake, and everyone can take advantage of blas, without shitty install process
 
 if integrating with fann, need to get rid of own structures and work with native fann ones
 ask for feedback on fann github in order to gauge interest in what I'm doing
