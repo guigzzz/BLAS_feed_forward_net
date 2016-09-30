@@ -1,7 +1,7 @@
 #include <iostream>
 #include <cblas.h>
 #include <chrono>
-#include "nnlib.h" //own header in same dir as cpp
+#include "nnlib.h" 
 #include <boost/simd/function/exp.hpp>
 #include <boost/simd/function/load.hpp>
 #include <boost/simd/function/store.hpp>
@@ -46,6 +46,23 @@ void run_net(struct neural_network *&mynet,struct test_data *data){
 			predicted_outputs[i/layer_sizes[num_layers-1]] = &raw_output[i];
 		}
 	}
+}
+
+void back_propagate(struct neural_network *ann){
+//back prop error through net, using linear algebra for calculations
+}
+
+struct neural_network *create_neural_network(int num_layers,int *layer_sizes){
+//generate structure
+//allocate needed memory, similar to read net except with random weight ini
+}
+
+void set_training_function(struct neural_network *ann,int training_function){
+//set training function of all neurons in network
+}
+
+void set_learning_rate(struct neural_network *ann,int learning_rate){
+//set learning rate of neural network
 }
 
 
